@@ -14,3 +14,6 @@ zcat tracks-17to20-unique-deduped-sorted.gz | grep \.official\.fm/          | sp
 zcat tracks-17to20-unique-deduped-sorted.gz | grep \.freemusicarchive\.org/ | split -l50 -a4 - list-2-fma-
 zcat tracks-17to20-unique-deduped-sorted.gz | grep \.feature\.fm/           | split -l50 -a4 - list-2-ffm-
 
+
+New job file for orphans:
+echo 2-ffm-aaaa 2-fma-aaaa 2-ofm-aaaa aacr aacs aact aacu aacv aacw aacx aacy aacz aada aadb aadc ufrr ufrs ufrt ufru ufrv ufrw ufrx ufry | tr ' ' '\n' | sed -e's%^%list-%'  | xargs cat | grep -E "aws|cloudfront" > list-1-cfaws-orphans
